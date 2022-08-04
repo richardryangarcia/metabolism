@@ -1,0 +1,18 @@
+query search {
+  search(
+    query: { text: "jon waltz" }
+    filter: {
+      collectionAddresses: [
+        "0x0bC2A24ce568DAd89691116d5B34DEB6C203F342"
+        "0x2B5426A5B98a3E366230ebA9f95a24f09Ae4a584"
+      ]
+    }
+    pagination: { limit: 5 }
+  ) {
+    nodes {
+      tokenId
+      name
+      collectionAddress
+    }
+  }
+}

@@ -4,3 +4,7 @@ declare module "*.gql" {
   const value: DocumentNode;
   export = value;
 }
+
+type WrapperProps = {
+  children: JSX.Element | JSX.Element[];
+};

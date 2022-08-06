@@ -10,15 +10,20 @@
   },
   "dependencies": {
     "@spinamp/spinamp-sdk": "^0.0.5",
+    "connectkit": "^0.0.1",
+    "ethers": "^5.6.9",
     "graphql": "^16.5.0",
     "graphql-request": "^4.3.0",
     "graphql-tag": "^2.12.6",
     "next": "12.2.4",
     "next-graphql-loader": "^1.0.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-is": "^18.2.0",
+    "wagmi": "^0.6.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.10",
     "@types/node": "18.6.3",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",

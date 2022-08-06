@@ -1,8 +1,17 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import client from "configs/connectkit";
+import { ConnectKitProvider } from "connectkit";
+import { WagmiConfig } from "wagmi";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <WagmiConfig client={client}>
+      <ConnectKitProvider>
+        <Component {...pageProps} />
+      </ConnectKitProvider>
+    </WagmiConfig>
+  );
 }
 
-export default MyApp
+export default MyApp;

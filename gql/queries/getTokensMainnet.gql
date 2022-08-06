@@ -1,0 +1,29 @@
+query getTokensMainnet {
+  tokens(
+    where: {
+      collectionAddresses: [
+        "0x311a0220397457b5b0f8f7569d87b1b5d79da629"
+        "0xd055cdb80f2d9625a3390920e2275c3f3eb25ad7"
+        "0x193239c374531f36d56b756ea14453de22449d81"
+        "0xd28bc4a14c3a1ee509119091d11778266d92634f"
+        "0xf956b9b324ec32bfec53cf4eef33578371692658"
+        "0x2b5426a5b98a3e366230eba9f95a24f09ae4a584"
+        "0x0bc2a24ce568dad89691116d5b34deb6c203f342"
+      ]
+    }
+    sort: { sortKey: MINTED, sortDirection: DESC }
+    pagination: { limit: 100 }
+  ) {
+    nodes {
+      token {
+        tokenId
+        collectionAddress
+        tokenUrl
+        image {
+          url
+        }
+        # metadata
+      }
+    }
+  }
+}

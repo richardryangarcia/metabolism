@@ -6,9 +6,6 @@ import { fetchPlaylistById } from "@spinamp/spinamp-sdk";
 
 const Home: NextPage = () => {
   const handleRequest = async () => {
-    // const res = await zoraRequest(search);
-    // console.log(res);
-
     const res = await fetchPlaylistById("UoFe4htiw5PXkA9SuMD7");
     console.log(res);
   };

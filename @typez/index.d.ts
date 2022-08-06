@@ -8,3 +8,10 @@ declare module "*.gql" {
 type WrapperProps = {
   children: JSX.Element | JSX.Element[];
 };
+
+type Token = {
+  address: string;
+  id: string;
+  tokenUri: string;
+  metadata: any;
+};

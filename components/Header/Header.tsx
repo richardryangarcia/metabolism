@@ -1,5 +1,7 @@
+import { Modal } from "components/Modal/Modal";
 import { ConnectKitButton } from "connectkit";
 import Image from "next/image";
+
 export const Header = () => {
   return (
     <>
@@ -8,9 +10,7 @@ export const Header = () => {
           <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
         </div>
         <div className="flex flex-row">
-          <button className="mr-4 pt-2">
-            <Image src="/pl.svg" height={30} width={30} />
-          </button>
+          <Modal />
 
           <ConnectKitButton />
         </div>

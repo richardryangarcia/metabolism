@@ -4,6 +4,7 @@ import { Grid } from "components/Grid/Grid";
 import { Page } from "components/Page/Page";
 import { useEffect } from "react";
 import { useActivePlaylist } from "hooks/useActivePlaylist";
+import { Modal } from "components/Modal/Modal";
 
 const Home: NextPage<{ tokens: Token[] }> = ({ tokens }) => {
   const { tracks } = useActivePlaylist();

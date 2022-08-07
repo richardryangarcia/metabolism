@@ -7,7 +7,12 @@ import { WagmiConfig } from "wagmi";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig client={client}>
-      <ConnectKitProvider mode="light">
+      <ConnectKitProvider
+        mode="light"
+        customTheme={{
+          "--ck-border-radius": "4px",
+        }}
+      >
         <Component {...pageProps} />
       </ConnectKitProvider>
     </WagmiConfig>

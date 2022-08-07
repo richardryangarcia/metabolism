@@ -20,7 +20,7 @@ export const GridItem = ({ token }: GridItemProps) => {
       : "Sound";
   };
   return (
-    <div className="border border-slate-50 w-full h-80 flex flex-col rounded-sm ">
+    <div className=" w-full h-80 flex flex-col rounded-sm shadow-md hover:shadow-xl">
       <Image
         src={formattedUri}
         height={250}

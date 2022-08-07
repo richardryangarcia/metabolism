@@ -2,21 +2,32 @@ import { getTokensMainnet } from "gql";
 import type { NextPage } from "next";
 import { Grid } from "components/Grid/Grid";
 import { Page } from "components/Page/Page";
-import { useEffect } from "react";
 import { useActivePlaylist } from "hooks/useActivePlaylist";
-import { Modal } from "components/Modal/Modal";
 
 const Home: NextPage<{ tokens: Token[] }> = ({ tokens }) => {
-  const { tracks } = useActivePlaylist();
+  const { tracks, setTracks } = useActivePlaylist();
   // const handleRequest = async () => {
   //   const res = await fetchPlaylistById("UoFe4htiw5PXkA9SuMD7");
   //   console.log(res);
   // };
 
+  const updateList = (track: string) => {
+    let list = [...tracks];
+
+    const index = list.indexOf(track);
+    if (index === -1) {
+      list.push(track);
+    } else {
+      list.splice(index, 1);
+    }
+
+    setTracks(Array.from(new Set(list)));
+  };
+
   return (
     <Page>
       {/* <button onClick={handleRequest}>get zora</button> */}
-      <Grid tokens={tokens} />
+      <Grid tokens={tokens} tracks={tracks} updateList={updateList} />
     </Page>
   );
 };

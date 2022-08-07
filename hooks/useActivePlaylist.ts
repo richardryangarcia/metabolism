@@ -10,8 +10,8 @@ interface IPlaylist {
 }
 
 export const useActivePlaylist = () => {
-  const { data: signer, isError, isLoading } = useSigner();
-  const [tracks, setTracks] = useState<any>([]);
+  const { data: signer } = useSigner();
+  const [tracks, setTracks] = useState<string[]>([]);
   useEffect(() => {
     const getList = async () => {
       if (signer) {

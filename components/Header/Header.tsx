@@ -21,9 +21,11 @@ export const Header = ({
 }: HeaderProps) => {
   return (
     <>
-      <div className="border border-bottom-slate-50 h-14 w-full flex justify-between items-center pr-2 pl-2">
+      <div className="border border-bottom-slate-50 h-14 w-full flex justify-between items-center pr-2 pl-2 text-purple-700 font-mono">
         <div>
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+          {/* <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+           */}
+          Zora FM
         </div>
         <div className="flex flex-row">
           <Modal

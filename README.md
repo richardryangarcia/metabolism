@@ -7,7 +7,7 @@ Uses Zora API and Spinamp SDK to search and create new playlists. Once youve mad
 
 ## Demo vid 
 
-https://youtu.be/SN6lRKZ9-DI
+https://www.youtube.com/watch?v=YdOlqswJl8o
 
 ## Contract Repo
 

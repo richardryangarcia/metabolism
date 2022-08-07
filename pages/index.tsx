@@ -13,6 +13,7 @@ const Home: NextPage<{ tokens: Token[] }> = ({ tokens }) => {
     setTitle,
     trackNames,
     setTrackNames,
+    publishPlaylist,
   } = useActivePlaylist();
 
   const updateList = (track: string, name: string) => {
@@ -39,6 +40,7 @@ const Home: NextPage<{ tokens: Token[] }> = ({ tokens }) => {
       title={title}
       trackNames={trackNames}
       setTitle={setTitle}
+      publishPlaylist={publishPlaylist}
     >
       {/* <button onClick={handleRequest}>get zora</button> */}
       <Grid tokens={tokens} tracks={tracks} updateList={updateList} />

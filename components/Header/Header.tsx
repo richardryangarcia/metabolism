@@ -9,6 +9,7 @@ type HeaderProps = {
   title: string;
   trackNames: NameMap;
   setTitle: Dispatch<SetStateAction<string>>;
+  publishPlaylist: () => void;
 };
 export const Header = ({
   tracks,
@@ -16,6 +17,7 @@ export const Header = ({
   title,
   trackNames,
   setTitle,
+  publishPlaylist,
 }: HeaderProps) => {
   return (
     <>
@@ -30,6 +32,7 @@ export const Header = ({
             title={title}
             trackNames={trackNames}
             setTitle={setTitle}
+            publishPlaylist={publishPlaylist}
           />
 
           <ConnectKitButton />

@@ -10,6 +10,7 @@ type PageProps = WrapperProps & {
   title: string;
   trackNames: NameMap;
   setTitle: Dispatch<SetStateAction<string>>;
+  publishPlaylist: () => void;
 };
 
 export const Page = ({
@@ -19,6 +20,7 @@ export const Page = ({
   title,
   trackNames,
   setTitle,
+  publishPlaylist,
 }: PageProps) => {
   return (
     <div>
@@ -33,6 +35,7 @@ export const Page = ({
         title={title}
         trackNames={trackNames}
         setTitle={setTitle}
+        publishPlaylist={publishPlaylist}
       />
       <Container>{children}</Container>
       <Footer />

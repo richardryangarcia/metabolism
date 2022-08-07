@@ -7,7 +7,11 @@ export const Header = () => {
         <div>
           <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
         </div>
-        <div>
+        <div className="flex flex-row">
+          <button className="mr-4 pt-2">
+            <Image src="/pl.svg" height={30} width={30} />
+          </button>
+
           <ConnectKitButton />
         </div>
       </div>

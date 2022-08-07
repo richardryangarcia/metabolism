@@ -2,8 +2,11 @@ import { getTokensMainnet } from "gql";
 import type { NextPage } from "next";
 import { Grid } from "components/Grid/Grid";
 import { Page } from "components/Page/Page";
+import { useEffect } from "react";
+import { useActivePlaylist } from "hooks/useActivePlaylist";
 
 const Home: NextPage<{ tokens: Token[] }> = ({ tokens }) => {
+  const { tracks } = useActivePlaylist();
   // const handleRequest = async () => {
   //   const res = await fetchPlaylistById("UoFe4htiw5PXkA9SuMD7");
   //   console.log(res);

@@ -20,7 +20,6 @@ const Home: NextPage<{ tokens: Token[] }> = ({ tokens }) => {
 export async function getServerSideProps(context: any) {
   const res = await getTokensMainnet();
   const tokens = res?.tokens?.nodes.map((token: any) => {
-    console.log(token.token.metadata);
     return {
       address: token.token.collectionAddress,
       id: token.token.tokenId,

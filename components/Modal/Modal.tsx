@@ -1,23 +1,30 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
-import { useActivePlaylist } from "hooks/useActivePlaylist";
+import { UpdatePlayListName } from "components/Forms/UpdatePlayListName";
 
 type ModalProps = {
   tracks: string[];
   savePlaylist: () => void;
   title: string;
   trackNames: NameMap;
+  setTitle: Dispatch<SetStateAction<string>>;
 };
 
 export const Modal = ({
-  tracks,
   savePlaylist,
   title,
   trackNames,
+  setTitle,
 }: ModalProps) => {
   const [showModal, setShowModal] = React.useState(false);
+  const [showEdit, setShowEdit] = React.useState(false);
+
   const handleSave = async () => {
     await savePlaylist();
+    setShowModal(false);
+  };
+  const handleClose = () => {
+    setShowEdit(false);
     setShowModal(false);
   };
   return (
@@ -37,10 +44,24 @@ export const Modal = ({
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">{title}</h3>
+                  {showEdit ? (
+                    <UpdatePlayListName
+                      title={title}
+                      setTitle={setTitle}
+                      setShowEdit={() => setShowEdit(false)}
+                    />
+                  ) : (
+                    <div className="flex flex-row justify-between items-center w-full">
+                      <div className="text-3xl font-semibold">{title}</div>
+                      <div onClick={() => setShowEdit(!showEdit)}>
+                        <Image src="/edit.svg" height={20} width={20} />
+                      </div>
+                    </div>
+                  )}
+
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                    onClick={() => setShowModal(false)}
+                    onClick={handleClose}
                   >
                     <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
                       ×
@@ -64,7 +85,7 @@ export const Modal = ({
                   <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => setShowModal(false)}
+                    onClick={handleClose}
                   >
                     Close
                   </button>

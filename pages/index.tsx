@@ -5,8 +5,15 @@ import { Page } from "components/Page/Page";
 import { useActivePlaylist } from "hooks/useActivePlaylist";
 
 const Home: NextPage<{ tokens: Token[] }> = ({ tokens }) => {
-  const { tracks, setTracks, savePlaylist, title, trackNames, setTrackNames } =
-    useActivePlaylist();
+  const {
+    tracks,
+    setTracks,
+    savePlaylist,
+    title,
+    setTitle,
+    trackNames,
+    setTrackNames,
+  } = useActivePlaylist();
 
   const updateList = (track: string, name: string) => {
     let list = [...tracks];
@@ -31,6 +38,7 @@ const Home: NextPage<{ tokens: Token[] }> = ({ tokens }) => {
       savePlaylist={savePlaylist}
       title={title}
       trackNames={trackNames}
+      setTitle={setTitle}
     >
       {/* <button onClick={handleRequest}>get zora</button> */}
       <Grid tokens={tokens} tracks={tracks} updateList={updateList} />

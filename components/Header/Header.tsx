@@ -1,18 +1,21 @@
 import { Modal } from "components/Modal/Modal";
 import { ConnectKitButton } from "connectkit";
 import Image from "next/image";
+import { Dispatch, SetStateAction } from "react";
 
 type HeaderProps = {
   tracks: string[];
   savePlaylist: () => void;
   title: string;
   trackNames: NameMap;
+  setTitle: Dispatch<SetStateAction<string>>;
 };
 export const Header = ({
   tracks,
   savePlaylist,
   title,
   trackNames,
+  setTitle,
 }: HeaderProps) => {
   return (
     <>
@@ -26,6 +29,7 @@ export const Header = ({
             savePlaylist={savePlaylist}
             title={title}
             trackNames={trackNames}
+            setTitle={setTitle}
           />
 
           <ConnectKitButton />

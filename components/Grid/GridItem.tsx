@@ -46,7 +46,6 @@ export const GridItem = ({ token, inPlaylist, updateList }: GridItemProps) => {
           <div className="text-xs pt-4">{fName?.[1]}</div>
           <div className="text-xs text-gray-400">
             {fName?.[0]} on {platform(address)}
-            <button>+</button>
           </div>
         </div>
       </div>

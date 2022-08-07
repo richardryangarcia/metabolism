@@ -2,12 +2,14 @@ import { Container } from "components/Container/Container";
 import { Footer } from "components/Footer/Footer";
 import { Header } from "components/Header/Header";
 import Head from "next/head";
+import { Dispatch, SetStateAction } from "react";
 
 type PageProps = WrapperProps & {
   tracks: string[];
   savePlaylist: () => void;
   title: string;
   trackNames: NameMap;
+  setTitle: Dispatch<SetStateAction<string>>;
 };
 
 export const Page = ({
@@ -16,6 +18,7 @@ export const Page = ({
   savePlaylist,
   title,
   trackNames,
+  setTitle,
 }: PageProps) => {
   return (
     <div>
@@ -29,6 +32,7 @@ export const Page = ({
         savePlaylist={savePlaylist}
         title={title}
         trackNames={trackNames}
+        setTitle={setTitle}
       />
       <Container>{children}</Container>
       <Footer />

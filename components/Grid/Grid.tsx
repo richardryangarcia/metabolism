@@ -28,7 +28,7 @@ export const Grid = ({ tokens, tracks, updateList }: GridProps) => {
           return (
             <GridItem
               token={token}
-              inPlaylist={trackMap[`ethereum/${address}/${id}`]}
+              inPlaylist={trackMap[`ethereum/${address}/${id}`.toLowerCase()]}
               updateList={updateList}
             />
           );

@@ -2,13 +2,6 @@ import { createPlaylist, fetchCollectorPlaylists } from "@spinamp/spinamp-sdk";
 import { useEffect, useState } from "react";
 import { useSigner } from "wagmi";
 
-interface IPlaylist {
-  id: string;
-  title: string;
-  trackIds: string[];
-  collector?: string; // address of user who created playlist
-}
-
 export const useActivePlaylist = () => {
   const { data: signer } = useSigner();
   const [tracks, setTracks] = useState<string[]>([]);
@@ -26,8 +19,13 @@ export const useActivePlaylist = () => {
 
   const savePlaylist = async () => {
     if (signer) {
-      const playlist = { title: "", trackIds: tracks };
+      const playlist = {
+        title: "fire playlist",
+        trackIds: tracks,
+      };
+
       const res = await createPlaylist(playlist, signer);
+      console.log(res);
     }
   };
   return { tracks, setTracks, savePlaylist };

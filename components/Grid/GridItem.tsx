@@ -30,7 +30,7 @@ export const GridItem = ({ token, inPlaylist, updateList }: GridItemProps) => {
   return (
     <div
       id={`${address}-${id}`}
-      onClick={() => handleClick(`ethereum/${address}/${id}`)}
+      onClick={() => handleClick(`ethereum/${address}/${id}`.toLowerCase())}
       className={`${border} w-full h-80 flex flex-col rounded-sm shadow-md hover:shadow-xl`}
     >
       <Image

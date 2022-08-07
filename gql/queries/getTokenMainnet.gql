@@ -1,0 +1,13 @@
+query getTokenMainnet($address: String!, $id: String!) {
+  token(
+    token: { address: $address, tokenId: $id }
+    network: { chain: MAINNET }
+  ) {
+    token {
+      tokenId
+      collectionAddress
+      tokenUrl
+      metadata
+    }
+  }
+}

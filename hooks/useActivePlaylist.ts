@@ -1,8 +1,5 @@
-import {
-  createPlaylist,
-  fetchCollectorPlaylists,
-  fetchPlaylistById,
-} from "@spinamp/spinamp-sdk";
+import { createPlaylist, fetchCollectorPlaylists } from "@spinamp/spinamp-sdk";
+import { getToken } from "gql";
 import { useEffect, useState } from "react";
 import { useSigner } from "wagmi";
 
@@ -15,9 +12,26 @@ export const useActivePlaylist = () => {
     const getList = async () => {
       if (signer) {
         let address = await signer.getAddress();
-        // const playlists = await fetchCollectorPlaylists(address);
-        const playlists = await fetchPlaylistById("UoFe4htiw5PXkA9SuMD7");
-        console.log(playlists);
+        const playlists = await fetchCollectorPlaylists(address);
+        if (playlists?.[0]?.title) {
+          setTitle(playlists?.[0]?.title);
+        }
+
+        if (playlists?.[0]?.trackIds) {
+          let newTracks = [];
+          let newNames: NameMap = {};
+
+          for await (const track of playlists?.[0]?.trackIds) {
+            const parts = track.split("/");
+            const res = await getToken(parts[1], parts[2]);
+            const name = res?.token?.token?.metadata?.name;
+            newTracks.push(track);
+            newNames[track] = name;
+          }
+
+          setTracks([...newTracks]);
+          setTrackNames({ ...newNames });
+        }
       }
     };
 

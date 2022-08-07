@@ -5,27 +5,33 @@ import { Page } from "components/Page/Page";
 import { useActivePlaylist } from "hooks/useActivePlaylist";
 
 const Home: NextPage<{ tokens: Token[] }> = ({ tokens }) => {
-  const { tracks, setTracks, savePlaylist } = useActivePlaylist();
-  // const handleRequest = async () => {
-  //   const res = await fetchPlaylistById("UoFe4htiw5PXkA9SuMD7");
-  //   console.log(res);
-  // };
+  const { tracks, setTracks, savePlaylist, title, trackNames, setTrackNames } =
+    useActivePlaylist();
 
-  const updateList = (track: string) => {
+  const updateList = (track: string, name: string) => {
     let list = [...tracks];
+    let names = { ...trackNames };
 
     const index = list.indexOf(track);
     if (index === -1) {
       list.push(track.toLowerCase());
+      names[track.toLowerCase()] = name;
     } else {
       list.splice(index, 1);
+      names[track.toLowerCase()] = "";
     }
 
     setTracks(Array.from(new Set(list)));
+    setTrackNames(names);
   };
 
   return (
-    <Page tracks={tracks} savePlaylist={savePlaylist}>
+    <Page
+      tracks={tracks}
+      savePlaylist={savePlaylist}
+      title={title}
+      trackNames={trackNames}
+    >
       {/* <button onClick={handleRequest}>get zora</button> */}
       <Grid tokens={tokens} tracks={tracks} updateList={updateList} />
     </Page>

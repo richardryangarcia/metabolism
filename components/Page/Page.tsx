@@ -6,9 +6,17 @@ import Head from "next/head";
 type PageProps = WrapperProps & {
   tracks: string[];
   savePlaylist: () => void;
+  title: string;
+  trackNames: NameMap;
 };
 
-export const Page = ({ children, tracks, savePlaylist }: PageProps) => {
+export const Page = ({
+  children,
+  tracks,
+  savePlaylist,
+  title,
+  trackNames,
+}: PageProps) => {
   return (
     <div>
       <Head>
@@ -16,7 +24,12 @@ export const Page = ({ children, tracks, savePlaylist }: PageProps) => {
         <meta name="description" content="metabolism" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header tracks={tracks} savePlaylist={savePlaylist} />
+      <Header
+        tracks={tracks}
+        savePlaylist={savePlaylist}
+        title={title}
+        trackNames={trackNames}
+      />
       <Container>{children}</Container>
       <Footer />
     </div>

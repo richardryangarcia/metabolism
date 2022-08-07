@@ -3,7 +3,7 @@ import Image from "next/image";
 type GridItemProps = {
   token: Token;
   inPlaylist: boolean;
-  updateList: (track: string) => void;
+  updateList: (track: string, name: string) => void;
 };
 
 export const GridItem = ({ token, inPlaylist, updateList }: GridItemProps) => {
@@ -23,14 +23,16 @@ export const GridItem = ({ token, inPlaylist, updateList }: GridItemProps) => {
       : "Sound";
   };
 
-  const handleClick = (s: string) => {
-    updateList(s);
+  const handleClick = (s: string, name: string) => {
+    updateList(s, name);
   };
 
   return (
     <div
       id={`${address}-${id}`}
-      onClick={() => handleClick(`ethereum/${address}/${id}`.toLowerCase())}
+      onClick={() =>
+        handleClick(`ethereum/${address}/${id}`.toLowerCase(), name)
+      }
       className={`${border} w-full h-80 flex flex-col rounded-sm shadow-md hover:shadow-xl`}
     >
       <Image

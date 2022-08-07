@@ -4,7 +4,7 @@ import { GridItem } from "./GridItem";
 type GridProps = {
   tokens: Token[];
   tracks: string[];
-  updateList: (track: string) => void;
+  updateList: (track: string, name: string) => void;
 };
 
 type TMap = {

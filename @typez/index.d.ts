@@ -15,3 +15,7 @@ type Token = {
   tokenUri: string;
   metadata: any;
 };
+
+type NameMap = {
+  [key: string]: string;
+};

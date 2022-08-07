@@ -20,11 +20,14 @@ export const GridItem = ({ token }: GridItemProps) => {
       : "Sound";
   };
   return (
-    <div className="border border-red-700 w-full h-80 flex flex-col rounded-lg ">
-      <div className="box-border border border-blue-500 h-3/5 w-full">
-        <Image src={formattedUri} height={250} width={250} />
-      </div>
-      <div className="border border-blue-500 h-2/5 w-full pt-12 pl-2">
+    <div className="border border-slate-50 w-full h-80 flex flex-col rounded-sm ">
+      <Image
+        src={formattedUri}
+        height={250}
+        width={250}
+        className="w-full rounded-sm"
+      />
+      <div className="border h-2/5 w-full pt-8 pl-2">
         <div className="flex flex-col">
           <div className="text-xs pt-4">{fName?.[1]}</div>
           <div className="text-xs text-gray-400">

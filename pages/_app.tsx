@@ -7,7 +7,7 @@ import { WagmiConfig } from "wagmi";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig client={client}>
-      <ConnectKitProvider>
+      <ConnectKitProvider mode="light">
         <Component {...pageProps} />
       </ConnectKitProvider>
     </WagmiConfig>
